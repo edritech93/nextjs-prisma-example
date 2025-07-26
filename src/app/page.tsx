@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Button, FloatingLabel } from "flowbite-react";
 
 type Todo = {
   id: number;
@@ -32,15 +33,14 @@ export default function HomePage() {
   return (
     <main className="p-4">
       <h1 className="text-xl font-bold mb-4">Todo App</h1>
-      <div className="mb-4">
-        <input
-          className="border p-2 mr-2"
+      <div className="flex mb-4 flex-row gap-4">
+        <FloatingLabel
+          variant={"outlined"}
+          label="Todo"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />
-        <button className="bg-blue-500 text-white px-4 py-2" onClick={addTodo}>
-          Add
-        </button>
+        <Button onClick={addTodo}>Add</Button>
       </div>
       <ul>
         {todos.map((todo) => (
